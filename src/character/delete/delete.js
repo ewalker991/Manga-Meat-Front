@@ -8,7 +8,7 @@ export default class Delete extends React.Component {
     render() {
         return (
             <div>
-                <h1>You are deleting: {console.log(this.props)}?</h1>
+                <h1>You are deleting: {this.props.data}?</h1>
                 <button onClick={()=>this.props.delete(this.props.data)}>Delete</button><br/>
             </div>)
     }
