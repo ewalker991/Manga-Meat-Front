@@ -48,6 +48,7 @@ class App extends Component {
         })
   }
 
+
   handleDeleteCharacter = (id) => {
     fetch('https://manga-meat-back.herokuapp.com/character/' + id,
         {
@@ -60,6 +61,23 @@ class App extends Component {
         .then(
           this.setState({characters: [...this.state.characters].filter(characters=>characters._id!==id ? characters: null), currentPage: "Index"})
         )
+
+  handleUpdateCharacter = (data) => {
+    const { Name, Picture, School, Age, ID, _id } = data
+    const updated = { Name, Picture, School, Age, ID, _id  }
+    fetch('https://manga-meat-back.herokuapp.com/character/' + _id,
+        {
+          method: 'PUT',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updated)
+        }).then(response=>response.json())
+        .then(updatedChar=>{
+          this.setState({allBooks: [...this.state.allBooks].map(characters=>characters._id===updatedChar._id ? updatedChar: characters), currentPage: "Index"})
+        })
+
   }
 
 
