@@ -13,8 +13,6 @@ class App extends Component {
     }
   }
 
-
-
   getAllCharacters = () => {
     console.log("Getting all characters...")
     const requestOptions = {
@@ -29,6 +27,9 @@ class App extends Component {
         console.error('Error:', error);
       })
   }
+
+  console.log('hello, world')
+
 
   getAllFood = () => {
     console.log("Getting all food...")
