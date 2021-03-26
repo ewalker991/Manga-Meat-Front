@@ -1,5 +1,7 @@
 import './App.css';
-import React, { Component } from 'react'
+import Index from './character/index/index.js';
+import React, { Component } from 'react';
+
 // import TestComp from './test-component/test-comp'
 
 class App extends Component {
@@ -55,7 +57,8 @@ class App extends Component {
     // }
     return (
       <div className="App">
-        {currentCharacter.map(char=> <div>{char.Name}</div>)}
+        <Index currentCharacter={this.state.characters}/>
+        {/* {currentCharacter.map(char=> <div>{char.Name}</div>)} */}
         {/* <div>{currentCharacter.characters.name}</div> */}
         <header className="App-header">
           <h1>MangaMeat</h1>
