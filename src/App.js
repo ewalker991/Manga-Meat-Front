@@ -1,5 +1,6 @@
 import './App.css';
 import Index from './character/index/index.js';
+import Create from './character/create/create.js';
 import React, { Component } from 'react';
 
 // import TestComp from './test-component/test-comp'
@@ -9,7 +10,8 @@ class App extends Component {
     super()
     this.state = {
       characters: [],
-      food: []
+      food: [],
+      currentPage: ""
     }
   }
 
@@ -26,6 +28,24 @@ class App extends Component {
       .catch((error) => {
         console.error('Error:', error);
       })
+  }
+
+  handleCreateCharacter = (data) => {
+    const {Name, School} = data
+    const newCharacter = { Name, School }
+    fetch('https://manga-meat-back.herokuapp.com/character', //local HOST FOR TESTINGGG
+        {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newCharacter)
+        }).then(response=>response.json())
+        .then(newCharacter=>{
+          console.log(newCharacter)
+          this.setState({characters: [...this.state.characters, newCharacter], currentPage: "Index"})
+        })
   }
 
 
@@ -50,15 +70,11 @@ class App extends Component {
     let currentCharacter = this.state.characters;
     console.log(currentCharacter)
     console.log(this.state.food)
-    // for (let i = 0; i < currentCharacter.length; i ++) {
-    //   let currentCharacter[i] =chars;
-    //   console.log(chars)
-    // }
+
     return (
       <div className="App">
         <Index currentCharacter={this.state.characters}/>
-        {/* {currentCharacter.map(char=> <div>{char.Name}</div>)} */}
-        {/* <div>{currentCharacter.characters.name}</div> */}
+        <Create create={this.handleCreateCharacter}/>
         <header className="App-header">
           <h1>MangaMeat</h1>
         </header>
