@@ -1,11 +1,14 @@
 import './App.css';
-import React, { Component } from 'react'
+import Index from './character/index/index.js';
+import React, { Component } from 'react';
+
+// import TestComp from './test-component/test-comp'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      characters: "",
+      characters: [],
       food: []
     }
   }
@@ -45,11 +48,18 @@ class App extends Component {
   }
 
   render() {
-    let currentCharacter = this.state;
-    console.log(currentCharacter.characters)
+    let currentCharacter = this.state.characters;
+    console.log(currentCharacter)
     console.log(this.state.food)
+    // for (let i = 0; i < currentCharacter.length; i ++) {
+    //   let currentCharacter[i] =chars;
+    //   console.log(chars)
+    // }
     return (
       <div className="App">
+        <Index currentCharacter={this.state.characters}/>
+        {/* {currentCharacter.map(char=> <div>{char.Name}</div>)} */}
+        {/* <div>{currentCharacter.characters.name}</div> */}
         <header className="App-header">
           <h1>MangaMeat</h1>
         </header>
