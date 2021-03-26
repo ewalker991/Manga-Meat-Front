@@ -28,8 +28,6 @@ class App extends Component {
       })
   }
 
-  console.log('hello, world')
-
 
   getAllFood = () => {
     console.log("Getting all food...")
