@@ -1,17 +1,20 @@
 import './App.css';
 import Index from './character/index/index.js';
 import Create from './character/create/create.js';
+import Delete from './character/delete/delete.js';
 import React, { Component } from 'react';
 
 // import TestComp from './test-component/test-comp'
 
 class App extends Component {
+
   constructor() {
     super()
     this.state = {
       characters: [],
       food: [],
-      currentPage: ""
+      currentPage: "",
+      bookmarkToDelete: "" // an object from child component state
     }
   }
 
@@ -21,9 +24,9 @@ class App extends Component {
       method: "GET"
     }
     fetch('https://manga-meat-back.herokuapp.com/character', requestOptions)
-      .then(resp=>resp.json())
-      .then(characters=>{
-        this.setState({characters: characters})
+      .then(resp => resp.json())
+      .then(characters => {
+        this.setState({ characters: characters })
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -31,52 +34,53 @@ class App extends Component {
   }
 
   handleCreateCharacter = (data) => {
-    const {Name, School} = data
+    const { Name, School } = data
     const newCharacter = { Name, School }
     fetch('https://manga-meat-back.herokuapp.com/character', //local HOST FOR TESTINGGG
-        {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newCharacter)
-        }).then(response=>response.json())
-        .then(newCharacter=>{
-          console.log(newCharacter)
-          this.setState({characters: [...this.state.characters, newCharacter], currentPage: "Index"})
-        })
+      {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newCharacter)
+      }).then(response => response.json())
+      .then(newCharacter => {
+        console.log(newCharacter)
+        this.setState({ characters: [...this.state.characters, newCharacter], currentPage: "Index" })
+      })
   }
 
 
   handleDeleteCharacter = (id) => {
     fetch('https://manga-meat-back.herokuapp.com/character/' + id,
-        {
-          method: 'DELETE',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        }).then(response=>response.json())
-        .then(
-          this.setState({characters: [...this.state.characters].filter(characters=>characters._id!==id ? characters: null), currentPage: "Index"})
-        )
+      {
+        method: 'DELETE',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }).then(response => response.json())
+      .then(
+        this.setState({ characters: [...this.state.characters].filter(characters => characters._id !== id ? characters : null), currentPage: "Index" })
+      )
+  }
 
   handleUpdateCharacter = (data) => {
     const { Name, Picture, School, Age, ID, _id } = data
-    const updated = { Name, Picture, School, Age, ID, _id  }
+    const updated = { Name, Picture, School, Age, ID, _id }
     fetch('https://manga-meat-back.herokuapp.com/character/' + _id,
-        {
-          method: 'PUT',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(updated)
-        }).then(response=>response.json())
-        .then(updatedChar=>{
-          this.setState({allBooks: [...this.state.allBooks].map(characters=>characters._id===updatedChar._id ? updatedChar: characters), currentPage: "Index"})
-        })
+      {
+        method: 'PUT',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updated)
+      }).then(response => response.json())
+      .then(updatedChar => {
+        this.setState({ allBooks: [...this.state.allBooks].map(characters => characters._id === updatedChar._id ? updatedChar : characters), currentPage: "Index" })
+      })
 
   }
 
@@ -87,9 +91,9 @@ class App extends Component {
       method: "GET"
     }
     fetch('https://manga-meat-back.herokuapp.com/food', requestOptions)
-      .then(resp=>resp.json())
-      .then(food=>{
-        this.setState({food: food})
+      .then(resp => resp.json())
+      .then(food => {
+        this.setState({ food: food })
       })
   }
 
@@ -98,15 +102,21 @@ class App extends Component {
     this.getAllFood()
   }
 
+  setDetail = (data) => {
+    console.log("Somethung", data)
+    this.setState({ bookmarkToDelete: data })
+  }//{console.log("Somethung", data)}
+
   render() {
     let currentCharacter = this.state.characters;
-    console.log(currentCharacter)
-    console.log(this.state.food)
+    // console.log(currentCharacter)
+    // console.log(this.state.food)
 
     return (
       <div className="App">
-        <Index currentCharacter={this.state.characters}/>
-        <Create create={this.handleCreateCharacter}/>
+        <Index currentCharacter={this.state.characters} setDetail={(data) => { this.setDetail(data) }} />
+        <Create create={this.handleCreateCharacter} />
+        <Delete delete={this.handleDeleteCharacter} data={this.state.bookmarkToDelete} />//called from 105
         <header className="App-header">
           <h1>MangaMeat</h1>
         </header>
