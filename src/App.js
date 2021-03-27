@@ -79,7 +79,7 @@ class App extends Component {
         body: JSON.stringify(updated)
       }).then(response => response.json())
       .then(updatedChar => {
-        this.setState({ allBooks: [...this.state.allBooks].map(characters => characters._id === updatedChar._id ? updatedChar : characters), currentPage: "Index" })
+        this.setState({ characters: [...this.state.characters].map(characters => characters._id === updatedChar._id ? updatedChar : characters), currentPage: "Index" })
       })
 
   }
