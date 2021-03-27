@@ -98,6 +98,26 @@ class App extends Component {
       })
   }
 
+  handleCreateFood = (data) => {
+    const { _id, Ingredients, Name, Picture } = data
+    const newFood = { _id, Ingredients, Name, Picture }
+    fetch('https://manga-meat-back.herokuapp.com/food', //can use local host string for testing
+      {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newFood)
+      }).then(response => response.json())
+      .then(newFood => {
+        console.log(newFood)
+        this.setState({ food: [...this.state.food, newFood], currentPage: "Index" })
+      })
+  }
+
+
+
   componentDidMount() {
     this.getAllCharacters()
     this.getAllFood()
