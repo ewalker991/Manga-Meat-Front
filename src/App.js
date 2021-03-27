@@ -98,6 +98,24 @@ class App extends Component {
       })
   }
 
+
+
+
+
+  handleDeleteFood = (id) => {
+    fetch('https://manga-meat-back.herokuapp.com/food/' + id,
+      {
+        method: 'DELETE',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }).then(response => response.json())
+      .then(
+        this.setState({ food: [...this.state.food].filter(food => food._id !== id ? food : null), currentPage: "Index" })
+      )
+  }
+
   componentDidMount() {
     this.getAllCharacters()
     this.getAllFood()
