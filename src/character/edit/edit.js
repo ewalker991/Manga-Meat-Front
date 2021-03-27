@@ -17,7 +17,7 @@ export default class Edit extends React.Component {
     }
     //fetch call
 
-    handleFormChange = (e) => {this.setState({data: { ...this.state.data, [e.target.Name]: e.target.value }})}
+    handleFormChange = (e) => { this.setState({ data: { ...this.state.data, [e.target.Name]: e.target.value } }) }
 
     render() {
         return (
@@ -27,8 +27,9 @@ export default class Edit extends React.Component {
                 <br />
                 <label htmlFor="url">Edit School Name</label>
                 <input id="url" name="url" type="text" placeholder="enter school name" value={this.state.data.School} required onChange={this.handleFormChange} />
-                <br/>
+                <br />
                 <button type="submit">Submit Edits</button>
-            </form>)
+            </form>
+        )
     }
 }
