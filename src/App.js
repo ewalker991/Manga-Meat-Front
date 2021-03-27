@@ -2,6 +2,7 @@ import './App.css';
 import Index from './character/index/index.js';
 import Create from './character/create/create.js';
 import Delete from './character/delete/delete.js';
+import Edit from './character/edit/edit.js';
 import React, { Component } from 'react';
 
 // import TestComp from './test-component/test-comp'
@@ -116,6 +117,7 @@ class App extends Component {
       <div className="App">
         <Index currentCharacter={this.state.characters} setDetail={(data) => { this.setDetail(data) }} />
         <Create create={this.handleCreateCharacter} />
+        <Edit edit={this.handleUpdateCharacter} />
         <Delete delete={this.handleDeleteCharacter} data={this.state.bookmarkToDelete} />//called from 105
         <header className="App-header">
           <h1>MangaMeat</h1>
