@@ -98,32 +98,6 @@ class App extends Component {
       })
   }
 
-
-
-
-
-
-
-
-  handleUpdateFood = (data) => {
-    const { _id, Ingredients, Name, Picture } = data
-    const updated = { _id, Ingredients, Name, Picture }
-    fetch('https://manga-meat-back.herokuapp.com/food/' + _id,
-      {
-        method: 'PUT',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updated)
-      }).then(response => response.json())
-      .then(updatedFood => {
-        this.setState({ food: [...this.state.food].map(food => food._id === updatedFood._id ? updatedFood : food), currentPage: "Index" })
-      })
-
-  }
-
-
   componentDidMount() {
     this.getAllCharacters()
     this.getAllFood()
