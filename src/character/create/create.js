@@ -1,6 +1,6 @@
 import React from "react"
 
-export default class Create extends React.Component {
+export default class CharCreate extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
