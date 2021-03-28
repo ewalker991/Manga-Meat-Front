@@ -5,6 +5,6 @@ export default function CharIndex(props) {
     return (<div>
         <h1>Characters</h1>
         {props.currentCharacter && props.currentCharacter.map(char => (
-        <div onClick={()=>props.setDetail(char.Name)}key={char.Name}>{char.Name}</div>))}
+        <div onClick={()=>props.setDetail(char._id, char.Name)}key={char._id} test={char.Name}>{char.Name}</div>))}
         </div>)
 }
