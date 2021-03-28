@@ -5,6 +5,8 @@ import Delete from './character/delete/delete.js';
 import Edit from './character/edit/edit.js';
 import React, { Component } from 'react';
 
+import FoodIndex from './food/index/index.js';
+
 // import TestComp from './test-component/test-comp'
 
 class App extends Component {
@@ -171,6 +173,7 @@ class App extends Component {
         <Create create={this.handleCreateCharacter} />
         <Edit edit={this.handleUpdateCharacter} />
         <Delete delete={this.handleDeleteCharacter} data={this.state.bookmarkToDelete} />//called from 105
+        <FoodIndex currentFood={this.state.food} />
         <header className="App-header">
           <h1>MangaMeat</h1>
         </header>
