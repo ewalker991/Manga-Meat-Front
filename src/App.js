@@ -22,7 +22,8 @@ class App extends Component {
       currentPage: "",
       charToDelete: "", // an object from child component state
       foodToDelete: "", // an object from child component state
-      charToName: ""
+      charToName: "",
+      foodToName: ""
     }
   }
 
@@ -168,9 +169,10 @@ class App extends Component {
     this.setState({ charToName: name })
   }
 
-  setFoodDetail = (data) => {
-    console.log("Somethung", data)
+  setFoodDetail = (data, name) => {
+    // console.log("Somethung", data)
     this.setState({ foodToDelete: data })
+    this.setState({ foodToName: name })
   }
 
   render() {
@@ -184,10 +186,10 @@ class App extends Component {
         <CharCreate create={this.handleCreateCharacter} />
         <CharEdit edit={this.handleUpdateCharacter} data={this.state.charToDelete}/>
         <CharDelete delete={this.handleDeleteCharacter} data={this.state.charToDelete} name={this.state.charToName} />//called from 105
-        <FoodIndex currentFood={this.state.food} setFoodDetail={(data) => { this.setFoodDetail(data) }}/>
+        <FoodIndex currentFood={this.state.food} setFoodDetail={(data, name) => { this.setFoodDetail(data, name) }}/>
         <CreateFood create={this.handleCreateFood} />
         <EditFood edit={this.handleUpdateFood} />
-        <DeleteFood delete={this.handleDeleteFood} data={this.state.foodToDelete} />
+        <DeleteFood delete={this.handleDeleteFood} data={this.state.foodToDelete} name={this.state.foodToName}/>
         <header className="App-header">
           <h1>MangaMeat</h1>
         </header>
