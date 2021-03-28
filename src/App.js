@@ -20,7 +20,8 @@ class App extends Component {
       characters: [],
       food: [],
       currentPage: "",
-      bookmarkToDelete: "" // an object from child component state
+      bookmarkToDelete: "", // an object from child component state
+      foodToDelete: "" // an object from child component state
     }
   }
 
@@ -165,6 +166,11 @@ class App extends Component {
     this.setState({ bookmarkToDelete: data })
   }//{console.log("Somethung", data)}
 
+  setFoodDetail = (data) => {
+    console.log("Somethung", data)
+    this.setState({ foodToDelete: data })
+  }
+
   render() {
     let currentCharacter = this.state.characters;
     // console.log(currentCharacter)
@@ -176,10 +182,10 @@ class App extends Component {
         <Create create={this.handleCreateCharacter} />
         <Edit edit={this.handleUpdateCharacter} />
         <Delete delete={this.handleDeleteCharacter} data={this.state.bookmarkToDelete} />//called from 105
-        <FoodIndex currentFood={this.state.food} />
+        <FoodIndex currentFood={this.state.food} setFoodDetail={(data) => { this.setFoodDetail(data) }}/>
         <CreateFood create={this.handleCreateFood} />
         <EditFood edit={this.handleUpdateFood} />
-        <DeleteFood delete={this.handleDeleteFood} />
+        <DeleteFood delete={this.handleDeleteFood} data={this.state.foodToDelete} />
         <header className="App-header">
           <h1>MangaMeat</h1>
         </header>
