@@ -180,6 +180,9 @@ class App extends Component {
 
     return (
       <div className="App">
+        <header className="App-header">
+          <h1>Welcome to MangaMeat Kitchen</h1>
+        </header>
         <CharIndex currentCharacter={this.state.characters} setDetail={(data, name) => { this.setDetail(data, name) }} />
         <CharCreate create={this.handleCreateCharacter} />
         <CharEdit edit={this.handleUpdateCharacter} data={this.state.charToDelete}/>
@@ -188,9 +191,6 @@ class App extends Component {
         <CreateFood create={this.handleCreateFood} />
         <EditFood edit={this.handleUpdateFood} />
         <DeleteFood delete={this.handleDeleteFood} data={this.state.foodToDelete} />
-        <header className="App-header">
-          <h1>MangaMeat</h1>
-        </header>
       </div>
     )
   }
