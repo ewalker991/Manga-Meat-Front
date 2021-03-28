@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import FoodIndex from './food/index/index.js';
 import CreateFood from './food/create/create.js';
 import EditFood from './food/edit/edit.js';
+import DeleteFood from './food/delete/delete.js';
 
 // import TestComp from './test-component/test-comp'
 
@@ -178,6 +179,7 @@ class App extends Component {
         <FoodIndex currentFood={this.state.food} />
         <CreateFood create={this.handleCreateFood} />
         <EditFood edit={this.handleUpdateFood} />
+        <DeleteFood delete={this.handleDeleteFood} />
         <header className="App-header">
           <h1>MangaMeat</h1>
         </header>
