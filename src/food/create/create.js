@@ -15,11 +15,11 @@ export default class Create extends React.Component {
         this.props.create(this.state.data)
     }
 
-    handleFormChange = (e) => {console.log(e.target.name);this.setState({data: {...this.state.data}, [e.target.name]: e.target.value})}
+    handleFormChange = (e) => {console.log(e.target.name);this.setState({data: {...this.state.data, [e.target.name]: e.target.value}})}
 
     render() {
         return (
-            <form onSubmite = {this.handleFormSubmit}>
+            <form onSubmit = {this.handleFormSubmit}>
                 <label htmlFor="name">Enter New Food Dish</label>
                 <input id="name" name="Name" type="text" placeholder="enter food dish name" value={this.state.data.Name} required onChange={this.handleFormChange} />
                 <br />
