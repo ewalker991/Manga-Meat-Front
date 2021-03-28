@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class Delete extends React.Component {
+export default class CharDelete extends React.Component {
     constructor(props) {
         super(props)
         

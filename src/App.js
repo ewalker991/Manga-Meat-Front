@@ -1,8 +1,8 @@
 import './App.css';
-import Index from './character/index/index.js';
-import Create from './character/create/create.js';
-import Delete from './character/delete/delete.js';
-import Edit from './character/edit/edit.js';
+import CharIndex from './character/index/index.js';
+import CharCreate from './character/create/create.js';
+import CharDelete from './character/delete/delete.js';
+import CharEdit from './character/edit/edit.js';
 import React, { Component } from 'react';
 
 import FoodIndex from './food/index/index.js';
@@ -178,10 +178,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Index currentCharacter={this.state.characters} setDetail={(data) => { this.setDetail(data) }} />
-        <Create create={this.handleCreateCharacter} />
-        <Edit edit={this.handleUpdateCharacter} />
-        <Delete delete={this.handleDeleteCharacter} data={this.state.bookmarkToDelete} />//called from 105
+        <CharIndex currentCharacter={this.state.characters} setDetail={(data) => { this.setDetail(data) }} />
+        <CharCreate create={this.handleCreateCharacter} />
+        <CharEdit edit={this.handleUpdateCharacter} data={this.state.bookmarkToDelete}/>
+        <CharDelete delete={this.handleDeleteCharacter} data={this.state.bookmarkToDelete} />//called from 105
         <FoodIndex currentFood={this.state.food} setFoodDetail={(data) => { this.setFoodDetail(data) }}/>
         <CreateFood create={this.handleCreateFood} />
         <EditFood edit={this.handleUpdateFood} />
