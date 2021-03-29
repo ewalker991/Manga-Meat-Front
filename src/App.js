@@ -27,7 +27,8 @@ class App extends Component {
       foodToDelete: "", // an object from child component state
       charToName: "",
       foodToName: "",
-      charToEdit: {}
+      charToEdit: {},
+      foodToEdit: {}
     }
   }
 
@@ -174,8 +175,7 @@ class App extends Component {
 
   setFoodDetail = (data, name) => {
     // console.log("Somethung", data)
-    this.setState({ foodToDelete: data })
-    this.setState({ foodToName: name })
+    this.setState({ foodToDelete: data, foodToName: name, foodToEdit: data })
   }
 
   render() {
@@ -207,10 +207,10 @@ class App extends Component {
           <Route path="/food" render={() =>
             <>
               <h1>Menu</h1>
-              <FoodIndex currentFood={this.state.food} setFoodDetail={(data, name) => { this.setFoodDetail(data, name) }} />
+              <FoodIndex currentFood={this.state.food} setFoodDetail={ this.setFoodDetail} />
               <div className="crud">
                 <CreateFood create={this.handleCreateFood} />
-                <EditFood edit={this.handleUpdateFood} />
+                <EditFood edit={this.handleUpdateFood} data={this.state.foodToEdit} />
                 <DeleteFood delete={this.handleDeleteFood} data={this.state.foodToDelete} name={this.state.foodToName} />
               </div>
             </>
