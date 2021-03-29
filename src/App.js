@@ -1,9 +1,12 @@
 import './App.css';
+import React, { Component } from 'react';
+import { Route, Link, Switch } from 'react-router-dom'
+import Navigation from './nav'
+
 import CharIndex from './character/index/index.js';
 import CharCreate from './character/create/create.js';
 import CharDelete from './character/delete/delete.js';
 import CharEdit from './character/edit/edit.js';
-import React, { Component } from 'react';
 
 import FoodIndex from './food/index/index.js';
 import CreateFood from './food/create/create.js';
@@ -182,14 +185,26 @@ class App extends Component {
 
     return (
       <div className="App">
+      <Navigation/>
+      <Switch>
+        <Route path="/characters" render={()=>
+        <>
         <CharIndex currentCharacter={this.state.characters} setDetail={(data, name) => { this.setDetail(data, name) }} />
         <CharCreate create={this.handleCreateCharacter} />
         <CharEdit edit={this.handleUpdateCharacter} data={this.state.charToDelete}/>
         <CharDelete delete={this.handleDeleteCharacter} data={this.state.charToDelete} name={this.state.charToName} />//called from 105
+        </>
+        } />
+        <Route path="/food" render={()=>
+        <>
         <FoodIndex currentFood={this.state.food} setFoodDetail={(data, name) => { this.setFoodDetail(data, name) }}/>
+
         <CreateFood create={this.handleCreateFood} />
         <EditFood edit={this.handleUpdateFood} />
         <DeleteFood delete={this.handleDeleteFood} data={this.state.foodToDelete} name={this.state.foodToName}/>
+        </>
+        } />
+      </Switch>
         <header className="App-header">
           <h1>MangaMeat</h1>
         </header>
