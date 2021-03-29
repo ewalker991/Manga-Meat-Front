@@ -1,67 +1,102 @@
 .App {
+  margin: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.feed {
-  padding: 20px;
-  flex-direction: column;
-  align-items: center;
-  background-color: lightblue;
-  width: 500px;
-  height: 800px;
+.App-header {
+  margin: 0 auto;
 }
 
-.post {
+a {
   padding: 10px;
-  margin: 0 auto;
-  background-color: rgb(245, 245, 245);
-  /* width: 480px; */
-  /* height: 400px; */
+  text-decoration: none;
 }
 
-.author {
-  padding: 15px;
-  background-color: rgb(255, 230, 233);
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.comments {
-  margin: 0 auto;
-  padding: 0 10px 0 10px;
-  background-color: bisque;
-  /* width: 425px; */
-  /* height: 80px; */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.profilePicture {
-  margin-left: 20px;
-  background-color: lightpink;
-  width: 50px;
-  height: 50px;
+.character {
+  margin: 20px;
 }
 
-.postPicture {
-  margin: 0 auto;
-  background-color: lightgreen;
-  /* width: 450px; */
-  height: 250px;
+.food {
+  margin: 20px;
 }
 
-p {
-  background-color: white;
-  padding: 5px;
-  margin: 5px 0 5px 0;
-  height: 50px;
-  text-align: left;
+form {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-h3 {
-  text-align: left;
+.foods, .characters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.food, .character {
   margin: 10px;
+  height: 180px;
+  width: 180px;
+  background-color: lightblue;
+  border-radius: 10px;
+}
+
+.food:hover, .character:hover {
+  background-color: rgb(181, 226, 240);
+}
+
+.food:active, .character:active {
+  background-color: rgb(141, 214, 238);
+}
+
+.crud {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content:space-between;
+  height: 200px;
+  width: 200px;
 }
 
 button {
-  margin: 5px;
+  color: maroon;
+  background-color: pink;
+  border: none;
+  height: 25px;
+  width: 200px;
 }
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(255, 213, 218);
+}
+
+button:active {
+  background-color: rgb(255, 160, 174);
+}
+
+.create, .edit, .delete {
+  margin: 10px;
+}
+

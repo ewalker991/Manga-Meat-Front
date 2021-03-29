@@ -186,25 +186,33 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>MangaMeat</h1>
+          <h1>Welcome to MangaMeat Kitchen</h1>
+          <p>Meat our chefs or check out the menu!</p>
         </header>
-        <Navigation />
+        <nav>
+          <Navigation />
+        </nav>
         <Switch>
           <Route path="/characters" render={() =>
             <>
+              <h1>Chefs</h1>
               <CharIndex currentCharacter={this.state.characters} setDetail={(data, name) => { this.setDetail(data, name) }} />
-              <CharCreate create={this.handleCreateCharacter} />
-              <CharEdit edit={this.handleUpdateCharacter} data={this.state.charToDelete} />
-              <CharDelete delete={this.handleDeleteCharacter} data={this.state.charToDelete} name={this.state.charToName} />//called from 105
-        </>
+              <div className="crud">
+                <CharCreate create={this.handleCreateCharacter} />
+                <CharEdit edit={this.handleUpdateCharacter} data={this.state.charToDelete} />
+                <CharDelete delete={this.handleDeleteCharacter} data={this.state.charToDelete} name={this.state.charToName} />
+              </div>
+            </>
           } />
           <Route path="/food" render={() =>
             <>
+              <h1>Menu</h1>
               <FoodIndex currentFood={this.state.food} setFoodDetail={(data, name) => { this.setFoodDetail(data, name) }} />
-
-              <CreateFood create={this.handleCreateFood} />
-              <EditFood edit={this.handleUpdateFood} />
-              <DeleteFood delete={this.handleDeleteFood} data={this.state.foodToDelete} name={this.state.foodToName} />
+              <div className="crud">
+                <CreateFood create={this.handleCreateFood} />
+                <EditFood edit={this.handleUpdateFood} />
+                <DeleteFood delete={this.handleDeleteFood} data={this.state.foodToDelete} name={this.state.foodToName} />
+              </div>
             </>
           } />
         </Switch>
