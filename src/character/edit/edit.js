@@ -21,8 +21,8 @@ export default class CharEdit extends React.Component {
         return (
             <div className="edit">
                 <h2>Edit Chef</h2>
-                <h4>You are editing: {this.props.data}?</h4>
                 <form onSubmit={this.handleFormSubmit}>
+                    <h4>You are editing: <br /> < br /> {this.props.data}?</h4>
                     <label htmlFor="name">Edit Character Name</label>
                     <input id="name" name="Name" type="text" placeholder="enter character name" value={this.state.data.Name} required onChange={this.handleFormChange} />
                     <br />
