@@ -9,14 +9,14 @@ export default class CharCreate extends React.Component {
     }
 
     handleFormSubmit = (e) => {
-        console.log(this.state.data)
+        // console.log(this.state.data)
         e.preventDefault()
-        console.log('from handle form submit')
+        // console.log('from handle form submit')
         this.props.create(this.state.data)
     }
 
 
-    handleFormChange = (e) => { console.log(e.target.name); this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } }) }
+    handleFormChange = (e) => { this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } }) }
 
     render() {
         return (

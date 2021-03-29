@@ -9,7 +9,7 @@ export default class CharEdit extends React.Component {
     }
 
     handleFormSubmit = (e) => {
-        console.log(this.state.data)
+        // console.log(this.state.data)
         e.preventDefault()
         this.props.edit(this.state.data)
     }
@@ -21,16 +21,16 @@ export default class CharEdit extends React.Component {
     }
 
     componentDidUpdate(){
-        if(this.state.data._id != this.props.data._id){
-            console.log("something char here")
+        if(this.state.data._id !== this.props.data._id){
+            // console.log("something char here")
             this.setState({
                 data: this.props.data
             })
         }
     }
     render() {
-        console.log("working edit log")
-        console.log(this.props.data)
+        // console.log("working edit log")
+        // console.log(this.props.data)
         return (
             <div className="edit">
                 <h2>Edit Chef</h2>

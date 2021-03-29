@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function CharIndex(props) {
-    console.log("in index-page")
+    // console.log("in index-page")
     return (
         <div className="characters">
             {props.currentCharacter && props.currentCharacter.map(char => (

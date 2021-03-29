@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Navigation from './nav'
 
 import CharIndex from './character/index/index.js';
@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   getAllCharacters = () => {
-    console.log("Getting all characters...")
+    // console.log("Getting all characters...")
     const requestOptions = {
       method: "GET"
     }
@@ -60,7 +60,7 @@ class App extends Component {
         body: JSON.stringify(newCharacter)
       }).then(response => response.json())
       .then(newCharacter => {
-        console.log(newCharacter)
+        // console.log(newCharacter)
         this.setState({ characters: [...this.state.characters, newCharacter], currentPage: "Index" })
       })
   }
@@ -100,7 +100,7 @@ class App extends Component {
 
 
   getAllFood = () => {
-    console.log("Getting all food...")
+    // console.log("Getting all food...")
     const requestOptions = {
       method: "GET"
     }
@@ -125,7 +125,7 @@ class App extends Component {
         body: JSON.stringify(newFood)
       }).then(response => response.json())
       .then(newFood => {
-        console.log(newFood)
+        // console.log(newFood)
         this.setState({ food: [...this.state.food, newFood], currentPage: "Index" })
       })
   }
@@ -179,8 +179,8 @@ class App extends Component {
   }
 
   render() {
-    let currentCharacter = this.state.characters;
-    console.log(this.state.charToEdit)
+    // let currentCharacter = this.state.characters;
+    // console.log(this.state.charToEdit)
     // console.log(this.state.food)
 
     return (
