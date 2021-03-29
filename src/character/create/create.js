@@ -4,7 +4,7 @@ export default class CharCreate extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: { Name: "", School: ""}
+            data: { Name: "", School: "" }
         }
     }
 
@@ -16,19 +16,22 @@ export default class CharCreate extends React.Component {
     }
 
 
-    handleFormChange = (e) => {console.log(e.target.name);this.setState({data: { ...this.state.data, [e.target.name]: e.target.value }})}
+    handleFormChange = (e) => { console.log(e.target.name); this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } }) }
 
     render() {
-
         return (
-            <form onSubmit={this.handleFormSubmit}>
-                <label htmlFor="name">Enter New Character Name</label>
-                <input id="name" name="Name" type="text" placeholder="enter character name" value={this.state.data.Name} required onChange={this.handleFormChange} />
-                <br />
-                <label htmlFor="url">Enter New School Name</label>
-                <input id="url" name="School" type="text" placeholder="enter school name" value={this.state.data.School} required onChange={this.handleFormChange} />
-                <br/>
-                <button type="submit">Create Character</button>
-            </form>)
+            <div className="create">
+                <h2>Create Chef</h2>
+                <form onSubmit={this.handleFormSubmit}>
+                    <label htmlFor="name">Enter New Character Name</label>
+                    <input id="name" name="Name" type="text" placeholder="enter character name" value={this.state.data.Name} required onChange={this.handleFormChange} />
+                    <br />
+                    <label htmlFor="url">Enter New School Name</label>
+                    <input id="url" name="School" type="text" placeholder="enter school name" value={this.state.data.School} required onChange={this.handleFormChange} />
+                    <br />
+                    <button type="submit">Create Character</button>
+                </form>
+            </div>
+        )
     }
 }
