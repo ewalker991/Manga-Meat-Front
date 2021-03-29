@@ -26,6 +26,7 @@ export default class CharCreate extends React.Component {
                     <label htmlFor="name">Enter New Character Name</label>
                     <input id="name" name="Name" type="text" placeholder="enter character name" value={this.state.data.Name} required onChange={this.handleFormChange} />
                     <br />
+                    
                     <label htmlFor="url">Enter New School Name</label>
                     <input id="url" name="School" type="text" placeholder="enter school name" value={this.state.data.School} required onChange={this.handleFormChange} />
                     <br />

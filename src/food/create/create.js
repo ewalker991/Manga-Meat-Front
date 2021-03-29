@@ -11,8 +11,8 @@ export default class Create extends React.Component {
     handleFormSubmit = (e) => {
         // console.log(this.state.data)
         e.preventDefault()
-        console.log('from handle form submit on food')
-        // this.props.create(this.state.data)
+        // console.log('from handle form submit on food')
+        this.props.create(this.state.data)
     }
 
     handleFormChange = (e) => { this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } }) }
