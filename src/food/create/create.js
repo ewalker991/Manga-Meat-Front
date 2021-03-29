@@ -25,7 +25,7 @@ export default class Create extends React.Component {
                     <label htmlFor="name">Enter New Food Dish</label>
                     <input id="name" name="Name" type="text" placeholder="enter food dish name" value={this.state.data.Name} required onChange={this.handleFormChange} />
                     <br />
-                    <label htmlFor="url">Enter Dish Ingredients</label>
+                    <label htmlFor="url">Enter Ingredients</label>
                     <input id="ingredients" name="Ingredients" type="text" placeholder="enter food ingredients" value={this.state.data.Ingredients} required onChange={this.handleFormChange} />
                     <br />
                     <button type="submit">Create Food Dish</button>
