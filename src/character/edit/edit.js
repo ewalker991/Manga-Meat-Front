@@ -14,10 +14,10 @@ export default class CharEdit extends React.Component {
         this.props.edit(this.state.data)
     }
 
-    handleFormChange = (e) => { 
-        this.setState({ 
-            data: { ...this.state.data, [e.target.name]: e.target.value } 
-        }) 
+    handleFormChange = (e) => {
+        this.setState({
+            data: { ...this.state.data, [e.target.name]: e.target.value }
+        })
     }
 
     componentDidUpdate(){
@@ -44,8 +44,7 @@ export default class CharEdit extends React.Component {
                     <input name="School" type="text" placeholder="enter school name" value={this.state.data.School} required onChange={this.handleFormChange} />
                     <br />
 
-                    <label htmlFor="url">Edit Picture Url</label>
-                    <input name="Picture" type="text" placeholder="enter picture url" value={this.state.data.Picture} required onChange={this.handleFormChange} />
+
                     <br />
 
                     <button type="submit">Submit Edits</button>
