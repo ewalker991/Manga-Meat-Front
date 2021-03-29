@@ -5,7 +5,7 @@ export default function CharIndex(props) {
     return (
         <div className="characters">
             {props.currentCharacter && props.currentCharacter.map(char => (
-                <div className="character" onClick={() => props.setDetail(char._id, char.Name)} key={char._id} test={char.Name}>
+                <div className="character" onClick={() => props.setDetail(char, char.Name)} key={char._id}>
                     {char.Name}
                 </div>
             ))}
