@@ -6,9 +6,11 @@ export default function Index(props) {
         <div className="foods">
             {props.currentFood && props.currentFood.map(food => (
                 <div className="food" onClick={() => props.setFoodDetail(food, food.Name)} key={food._id}>
-                    {food.Name}<img src={food.Picture} alt="pic" />
+                    {food.Name}
                 </div>
             ))}
         </div>
     )
 }
+
+//<img src={food.Picture} alt="pic" />
