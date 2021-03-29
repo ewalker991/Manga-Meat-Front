@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Welcome to Manga Meat!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Manga Meat is the HOTTEST new anime food restaurant on the block! This app manages the online menu and database, so guests can explore our cartoonishly delicious dining options.
 
-## Available Scripts
+## About Manga Meat
 
-In the project directory, you can run:
+### Backend
 
-### `npm start`
+Manga Meat uses a MongoDB Atlas API for the backend. Express is used to simplify the server creation process. This backend has full CRUD functionality using ```POST```, ```GET```, ```PUT```, and ```DELETE``` requests. The backend is deployed using MongoDB Atlas and Heroku.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Frontend
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The frontend was created as a react app. React was chosen for its component centered build process.  React's use of a virtual DOM also makes for a speedy web app. React router allows for seamless movement between different views.
 
-### `npm test`
+Methods written in the App.js allow individual components to make CRUD requests to the backend. This allows for menu and chef database information to be updated from the front end. This process in turn triggers a new fetch call, and the updated state causes a re-render showing the new collection of information on the live web app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+You will need the proper node packages installed to contribute to this project. Use the CLI to install the proper node packages in the directory where you have cloned the repository. The necessary dev dependencies can always be found in the package.json.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install react-router react-router-dom react-dom
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To start the react app in your browser run
+```npm start```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `npm run eject`
+The nav menu at the top of the page allows for selection of views between the home page, Chefs page, and food page. When you are in the Chefs view you can click on an individual chef and stage that chef for editing or deletion. The create inputs can be used to create a new chef. The same actions can be taken with food on the Food view.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This app is licensed.
