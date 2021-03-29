@@ -1,20 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&family=Yatra+One&display=swap');
-
-body {
-  margin: 50px;
-  /* background-image: linear-gradient(rgb(255, 225, 160), rgb(255, 184, 91)); */
-}
-
-html {
-  justify-content: center;
-  align-items: center;
-}
-
 .App {
-  font-family: 'Yatra One', cursive;
-  font-size: 15px;
-  margin: 0 auto;
-  padding: 10px;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,29 +7,13 @@ html {
   text-align: center;
 }
 
-h1 {
-  font-family: 'New Tegomin', serif;
-  font-size: 45px;
-}
-
-p {
-  font-family: 'Yatra One', cursive;
-  font-size: 20px;
-  margin: 0 auto;
-}
-
 .App-header {
   margin: 0 auto;
 }
 
 a {
-  color: rgb(255, 183, 49);
   padding: 10px;
   text-decoration: none;
-}
-
-a:hover {
-  color: rgb(255, 229, 111);
 }
 
 header {
@@ -55,25 +24,29 @@ header {
 }
 
 nav {
-  font-family: 'Yatra One', cursive;
-  font-size: 35px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
+.character {
+  margin: 20px;
+}
+
+.food {
+  margin: 20px;
+}
+
 form {
-  margin: 0 auto;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
 }
 
 .foods, .characters {
-  margin: 30px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -82,44 +55,33 @@ form {
 }
 
 .food, .character {
-  font-family: 'Yatra One', cursive;
-  font-size: 20px;
-  /* margin: 10px; */
+  margin: 10px;
   height: 180px;
   width: 180px;
-  background-color: rgb(255, 208, 122);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+  background-color: lightblue;
+  border-radius: 10px;
 }
 
 .food:hover, .character:hover {
-  background-color: rgb(255, 225, 144);
+  background-color: rgb(181, 226, 240);
 }
 
 .food:active, .character:active {
-  background-color: rgb(255, 198, 9);
+  background-color: rgb(141, 214, 238);
 }
 
-.crud, .create, .edit, .delete {
+.crud {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-}
-
-.create, .edit, .delete {
-  flex-direction: column;
-  justify-content: space-between;
-  height: 300px;
+  align-content:space-between;
+  height: 200px;
+  width: 200px;
 }
 
 button {
-  font-family: 'Yatra One', cursive;
-  font-size: 15px;
   color: maroon;
-  background-color: rgb(255, 174, 98);
+  background-color: pink;
   border: none;
   height: 25px;
   width: 200px;
@@ -127,25 +89,14 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: rgb(255, 204, 109);
+  background-color: rgb(255, 213, 218);
 }
 
 button:active {
-  background-color: rgb(206, 147, 79);
+  background-color: rgb(255, 160, 174);
 }
 
 .create, .edit, .delete {
   margin: 10px;
-}
-
-input {
-  margin: 5px;
-  height: 25px;
-  width: 180px;
-  text-align: center;
-}
-
-h2 {
-  margin: 0 auto;
 }
 
