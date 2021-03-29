@@ -26,7 +26,9 @@ class App extends Component {
       charToDelete: "", // an object from child component state
       foodToDelete: "", // an object from child component state
       charToName: "",
-      foodToName: ""
+      foodToName: "",
+      charToEdit: {},
+      foodToEdit: {}
     }
   }
 
@@ -168,19 +170,17 @@ class App extends Component {
 
   setDetail = (data, name) => {
     // console.log("Somethung", data, name)
-    this.setState({ charToDelete: data })
-    this.setState({ charToName: name })
+    this.setState({ charToDelete: data,  charToName: name, charToEdit: data})
   }
 
   setFoodDetail = (data, name) => {
     // console.log("Somethung", data)
-    this.setState({ foodToDelete: data })
-    this.setState({ foodToName: name })
+    this.setState({ foodToDelete: data, foodToName: name, foodToEdit: data })
   }
 
   render() {
     let currentCharacter = this.state.characters;
-    // console.log(currentCharacter)
+    console.log(this.state.charToEdit)
     // console.log(this.state.food)
 
     return (
@@ -196,10 +196,10 @@ class App extends Component {
           <Route path="/characters" render={() =>
             <>
               <h1>Chefs</h1>
-              <CharIndex currentCharacter={this.state.characters} setDetail={(data, name) => { this.setDetail(data, name) }} />
+              <CharIndex currentCharacter={this.state.characters} setDetail={ this.setDetail} />
               <div className="crud">
                 <CharCreate create={this.handleCreateCharacter} />
-                <CharEdit edit={this.handleUpdateCharacter} data={this.state.charToDelete} />
+                <CharEdit edit={this.handleUpdateCharacter} data={this.state.charToEdit} />
                 <CharDelete delete={this.handleDeleteCharacter} data={this.state.charToDelete} name={this.state.charToName} />
               </div>
             </>
@@ -207,10 +207,10 @@ class App extends Component {
           <Route path="/food" render={() =>
             <>
               <h1>Menu</h1>
-              <FoodIndex currentFood={this.state.food} setFoodDetail={(data, name) => { this.setFoodDetail(data, name) }} />
+              <FoodIndex currentFood={this.state.food} setFoodDetail={ this.setFoodDetail} />
               <div className="crud">
                 <CreateFood create={this.handleCreateFood} />
-                <EditFood edit={this.handleUpdateFood} />
+                <EditFood edit={this.handleUpdateFood} data={this.state.foodToEdit} />
                 <DeleteFood delete={this.handleDeleteFood} data={this.state.foodToDelete} name={this.state.foodToName} />
               </div>
             </>
