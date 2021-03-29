@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom'
+import Navigation from './nav'
 
 import CharIndex from './character/index/index.js';
 import CharCreate from './character/create/create.js';
@@ -184,6 +185,7 @@ class App extends Component {
 
     return (
       <div className="App">
+      <Navigation/>
       <Switch>
         <Route path="/characters" render={()=>
         <>
